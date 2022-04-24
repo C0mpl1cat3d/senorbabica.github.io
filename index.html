@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta link href=“https://api-ssps.cajthaml.eu/file/global/css/reset_ld9mrCCm.css” ref=“stylesheet”>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>Šimon Šrámek</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+        body {
+            display: flex;
+            font-family: 'Titillium Web', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #04151F;
+            justify-content: center;
+            height: 200vh;
+            width: 100%;
+            background-attachment: fixed;
+           }
+
+        .layout {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 70%;
+            gap: 2%;
+        }
+
+        .navbar {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 2.5%;
+            margin-top: 1%;
+            background-color: #04151F;
+            color: #EFD6AC;
+            border-radius: 0.5rem;
+            box-shadow: 0px 0px 3px 0px;
+            z-index: 999;
+        }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            margin-top: 0;
+            width: 70%;
+            height: 5%;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .logo {
+            display: flex;
+            width: 20%;
+            font-size: 1.5em;
+            padding-left: 2%;
+        }
+
+        .logo>span:hover {
+            color: #EFD6AC;
+        }
+
+        .name {
+            display: flex;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bolder;
+            width: 20%;
+            gap: 5%;
+        }
+
+        .navigation {
+            display: flex;
+            width: 20%;
+            height: 100%;
+            padding-right: 2%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navigation>a {
+            color: #EFD6AC;
+            text-decoration: none;
+            width: 100%;
+            text-align: center;
+        }
+
+        .navigation>a:hover {
+            background-color: #727a94;
+            transition: 0.1s;
+        }
+
+        .hamburger-lines {
+            display: flex;
+            visibility: hidden;
+            height: 26px;
+            width: 32px;
+            top: 17px;
+            left: 20px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hamburger-lines .line {
+            display: block;
+            height: 4px;
+            width: 100%;
+            border-radius: 10px;
+            background: #FFD6BA;
+            box-shadow: 1px 1px 5px 0px #464646;
+        }
+
+        .hamburger-lines .line1 {
+            transform-origin: 0% 0%;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .hamburger-lines .line2 {
+            transition: 0.1s ease-in-out;
+        }
+
+        .hamburger-lines .line3 {
+            transform-origin: 0% 100%;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            gap: 5%;
+        }
+
+        .intr {
+            display: flex;
+            justify-content: center;
+            color: #FAF9F9;
+            background-color: #04151F;
+            width: 100%;
+            height: 5%;
+            padding-top: 2%;
+            font-size: 2em;
+            margin: 0;
+        }
+
+        .article {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            height: 40%;
+            gap: 5%;
+            background-color: #04151F;
+            border-radius: 0.5rem;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .article-content {
+            display: flex;
+            width: 100%;
+            height: 95%;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .img-container {
+            display: flex;
+            background-image: url("https://c8.alamy.com/zooms/9/a28199686fc94dee85a8729051cc001a/2bdxf6h.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 45%;
+            height: 85%;
+            border-radius: 0.5rem;
+            border: outset 5px #183A37;
+        }
+
+        .intro-text {
+            display: flex;
+            color: #FAF9F9;
+            text-align: center;
+            font-size: 1.5em;
+            width: 45%;
+            height: 85%;
+            border-radius: 0.5rem;
+            align-items: center;
+            border: inset 5px #183A37;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        .intro-text::-webkit-scrollbar {
+            display: none;
+        }
+
+        .intro-text>p {
+            margin: 5%;
+        }
+
+        .test {
+            display: flex;
+            width: 100%;
+            height: 20%;
+            background-color: white;
+        }
+
+        .curtain {
+            display: flex;
+            width: 50%;
+            height: 100%;
+            background-color: aqua;
+            z-index: 5;
+        }
+
+        .test>p {
+            display: flex;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout">
+        <div class="navbar">
+            <div class="logo">
+                SAF
+            </div>
+            <div class="name">
+                <span>Šimon</span>
+                <span>Šrámek</span>
+            </div>
+            <div class="navigation">
+                <div id="burger" class="hamburger-lines">
+                    <span id="line1" class="line line1"></span>
+                    <span id="line2" class="line line2"></span>
+                    <span id="line3" class="line line3"></span>
+                </div>
+                <a href="#home">HOME</a>
+                <a href="#blog">BLOG</a>
+                <a href="#projects">PROJECTS</a>
+            </div>
+        </div>
+        <div class="main">
+            <div class="article">
+                <h1 class="intr">
+                    Introduction
+                </h1>
+                <div class="article-content">
+                    <div class="img-container">
+                    </div>
+                    <div class="intro-text">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qualem igitur hominem natura
+                            inchoavit?
+                            Quae cum dixisset, finem ille. An hoc usque quaque, aliter in vita? Profectus in exilium
+                            Tubulus
+                            statim nec respondere ausus; Qui convenit? Duo Reges: constructio interrete.
+                            Sint modo partes vitae beatae. Summae mihi videtur inscitiae. Quid, quod res alia tota est?
+                            Nemo
+                            igitur esse beatus potest. Scio enim esse quosdam, qui quavis lingua philosophari possint;
+                            Ita
+                            prorsus, inquam; Quae diligentissime contra Aristonem dicuntur a Chryippo. Nos commodius
+                            agimus.
+                            Igitur neque stultorum quisquam beatus neque sapientium non beatus. Qualem igitur hominem
+                            natura
+                            inchoavit? Non autem hoc: igitur ne illud quidem. Mihi, inquam, qui te id ipsum rogavi?
+                            ae cum dixisset, finem ille. An hoc usque quaque, aliter in vita? Profectus in exilium
+                            Tubulus
+                            statim nec respondere ausus; Qui convenit? Duo Reges: constructio interrete.
+                            Sint modo partes vitae beatae. Summae mihi videtur inscitiae. Quid, quod res alia tota est?
+                            Nemo
+                            igitur esse beatus potest. Scio enim esse quosdam, qui quavis lingua philosophari possint;
+                            Ita
+                            prorsus, inquam; Quae diligentissime contra Aristonem dicuntur a Chryippo. Nos commodius
+                            agimus.
+                            Igitur neque stultorum quisquam beatus neque sapientium non beatus. Qualem igitur hominem
+                            natura
+                            inchoavit? Non autem hoc: igitur ne illud quidem. Mihi, inquam, qui te id ipsum rogavi?
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="test">
+                <p>
+                    askldjhflaksdjhflaskjdhflaskjdhglasidjbvlaiewrubvl\isjdbvlyaiserudhglidsuhglydkijfgldiorfhgdliuhg
+                </p>
+                <div class="curtain">
+                </div>
+                <div class="curtain">
+                </div>
+            </div>
+            <div class="article">
+                <h1 class="intr">
+                    Introduction
+                </h1>
+                <div class="article-content">
+                    <div class="img-container">
+                    </div>
+                    <div class="intro-text">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qualem igitur hominem natura
+                            inchoavit?
+                            Quae cum dixisset, finem ille. An hoc usque quaque, aliter in vita? Profectus in exilium
+                            Tubulus
+                            statim nec respondere ausus; Qui convenit? Duo Reges: constructio interrete.
+                            Sint modo partes vitae beatae. Summae mihi videtur inscitiae. Quid, quod res alia tota
+                            est?
+                            Nemo
+                            igitur esse beatus potest. Scio enim esse quosdam, qui quavis lingua philosophari
+                            possint;
+                            Ita
+                            prorsus, inquam; Quae diligentissime contra Aristonem dicuntur a Chryippo. Nos commodius
+                            agimus.
+                            Igitur neque stultorum quisquam beatus neque sapientium non beatus. Qualem igitur
+                            hominem
+                            natura
+                            inchoavit? Non autem hoc: igitur ne illud quidem. Mihi, inquam, qui te id ipsum rogavi?
+                            ae cum dixisset, finem ille. An hoc usque quaque, aliter in vita? Profectus in exilium
+                            Tubulus
+                            statim nec respondere ausus; Qui convenit? Duo Reges: constructio interrete.
+                            Sint modo partes vitae beatae. Summae mihi videtur inscitiae. Quid, quod res alia tota
+                            est?
+                            Nemo
+                            igitur esse beatus potest. Scio enim esse quosdam, qui quavis lingua philosophari
+                            possint;
+                            Ita
+                            prorsus, inquam; Quae diligentissime contra Aristonem dicuntur a Chryippo. Nos commodius
+                            agimus.
+                            Igitur neque stultorum quisquam beatus neque sapientium non beatus. Qualem igitur
+                            hominem
+                            natura
+                            inchoavit? Non autem hoc: igitur ne illud quidem. Mihi, inquam, qui te id ipsum rogavi?
+                        </p>
+                    </div>
+                </div>
+                <div class="curtain">
+                </div>
+                <div class="curtain">
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="script.js"></script>
+</body>
+
+</html>
