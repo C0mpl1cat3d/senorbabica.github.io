@@ -1,4 +1,5 @@
 const navbar = document.querySelector('div.navbar')
+const article = document.querySelectorAll('div.article')
 const curtain = document.querySelectorAll('div.curtain')
 const sticky = window.pageYOffset;
 AOS.init();
@@ -7,35 +8,12 @@ AOS.init();
 document.addEventListener('scroll', function () {
     if (window.pageYOffset > sticky) {
         navbar.classList.add("sticky")
+        article[0].classList.add("sticked")
     } else {
         navbar.classList.remove("sticky");
-    }
-
-    if (checkVisible(curtain[0])) {
-        animate();
+        article[0].classList.remove("sticked")
     }
 })
-
-function animate() {
-    for (let i = 0; i <= curtain.length; i++) {
-        if (i === 0) {
-            anime({
-                targets: curtain[i],
-                translateX: 1270,
-                scaleX: 0.1,
-                easing: 'easeInElastic(1, .6)',
-            });
-        }
-        else {
-            anime({
-                targets: curtain[i],
-                translateX: -1270,
-                scaleX: 0.1,
-                easing: 'easeInElastic(1, .6)',
-            });
-        }
-    }
-}
 
 function checkVisible(elm) {
     var rect = elm.getBoundingClientRect();
