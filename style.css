@@ -1,19 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     display: flex;
     font-family: 'Titillium Web', sans-serif;
+    background-attachment: fixed;
+    color: white;
+    justify-content: center;
     margin: 0;
     padding: 0;
     background-color: #04151F;
-    color: white;
-    justify-content: center;
     height: 200vh;
     width: 100%;
     background-image: url('https://freesvg.org/img/Abstract-Pattern-36--Arvin61r58.png');
-    background-attachment: fixed;
-   }
+}
 
 .layout {
     display: flex;
@@ -163,6 +166,7 @@ body {
     display: flex;
     width: 100%;
     height: 90%;
+    gap: 2%;
     justify-content: center;
     align-items: center;
     z-index: 1;
@@ -176,7 +180,6 @@ body {
     width: 45%;
     height: 85%;
     border-radius: 0.5rem;
-    border: outset 5px #183A37;
 }
 
 .intro-text {
@@ -187,8 +190,8 @@ body {
     width: 45%;
     height: 85%;
     border-radius: 0.5rem;
+    border: solid 1px #EFD6AC;
     align-items: center;
-    border: inset 5px #183A37;
     overflow-y: scroll;
     overflow-x: hidden;
 }
