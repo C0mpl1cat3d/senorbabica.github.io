@@ -163,7 +163,7 @@ body {
     transition: 0.5s;
 }
 
-.sticked{
+.sticked {
     margin-top: 15%;
     transition: 0.5s;
 }
@@ -213,22 +213,48 @@ body {
 
 
 @media screen and (max-width: 1025px) {
-    .article-content{
+    .article-content {
         flex-direction: column;
     }
-    .article-content>div{
+
+    .article-content>div {
         width: 90%;
     }
-    .img-container{
+
+    .img-container {
         background-size: cover;
     }
-    .navigation>a{
+
+    .navigation>a {
         visibility: hidden;
     }
-    .hamburger-lines{
+
+    .hamburger-lines {
         visibility: visible;
     }
-    .main{
+
+    .main {
         gap: 1%;
     }
-  }
+}
+
+@media screen and (max-width: 768px) {
+    .article {
+        margin-top: 25%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .name {
+        visibility: hidden;
+    }
+    .article {
+        margin-top: 30%;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .article {
+        margin-top: 10%;
+    }
+}
