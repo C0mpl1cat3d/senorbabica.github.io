@@ -94,8 +94,8 @@ body {
 .hamburger-lines {
     display: flex;
     visibility: hidden;
-    height: 26px;
-    width: 32px;
+    height: 100px;
+    width: 100px;
     top: 17px;
     left: 20px;
     z-index: 2;
@@ -110,7 +110,7 @@ body {
     width: 100%;
     border-radius: 10px;
     background: #FFD6BA;
-    box-shadow: 1px 1px 5px 0px #464646;
+    box-shadow: 1px 1px 5px 0px #EFD6AC;
 }
 
 .hamburger-lines .line1 {
@@ -183,6 +183,7 @@ body {
     background-image: url("https://c8.alamy.com/zooms/9/a28199686fc94dee85a8729051cc001a/2bdxf6h.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     width: 45%;
     height: 85%;
     border-radius: 0.5rem;
@@ -197,7 +198,6 @@ body {
     height: 85%;
     border-radius: 0.5rem;
     border: solid 1px #EFD6AC;
-    align-items: center;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -207,15 +207,28 @@ body {
 }
 
 .intro-text>p {
+    display: flex;
     margin: 5%;
 }
 
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 1025px) {
     .article-content{
         flex-direction: column;
     }
     .article-content>div{
         width: 90%;
+    }
+    .img-container{
+        background-size: cover;
+    }
+    .navigation>a{
+        visibility: hidden;
+    }
+    .hamburger-lines{
+        visibility: visible;
+    }
+    .main{
+        gap: 1%;
     }
   }
