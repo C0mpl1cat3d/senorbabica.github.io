@@ -13,7 +13,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #04151F;
-    height: 200vh;
+    height: 300vh;
     width: 100%;
     background-image: url('https://freesvg.org/img/Abstract-Pattern-36--Arvin61r58.png');
 }
@@ -140,14 +140,16 @@ body {
     gap: 2%;
 }
 
-.intr {
+.header {
     display: flex;
     justify-content: center;
+    align-items: center;
     color: #FAF9F9;
     background-color: #04151F;
     width: 100%;
     height: 2%;
     padding-top: 2%;
+    padding-bottom: 2%;
     font-size: 2em;
     margin: 0;
 }
@@ -158,9 +160,8 @@ body {
     align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 40%;
-    gap: 5%;
-    margin-top: 15%;
+    height: 30%;
+    gap: 1%;
     background-color: #04151F;
     border-radius: 1rem;
     overflow: hidden;
@@ -168,9 +169,8 @@ body {
     transition: 0.5s;
 }
 
-.sticked {
-    margin-top: 15%;
-    transition: 0.5s;
+.article>.header{
+    padding-bottom: 0;
 }
 
 .article-content {
@@ -216,6 +216,45 @@ body {
     margin: 5%;
 }
 
+.projects{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40%;
+    background-color: #04151F;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px 0px #573030;
+}
+
+.project-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 95%;
+    height: 90%;
+    gap: 1rem;
+}
+
+.project{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border-radius: 1rem;
+}
+
+.footer{
+    display: flex;
+    width: 200%;
+    align-self: center;
+    height: 3%;
+    bottom: 0;
+    z-index: -20;
+    background-color: black;
+
+}
+
 
 @media screen and (max-width: 1025px) {
     .article-content {
@@ -236,7 +275,7 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-    .article {
+    .article:first-child {
         margin-top: 25%;
     }
     .layout{
@@ -252,13 +291,13 @@ body {
     .name {
         visibility: hidden;
     }
-    .article {
+    .article:first-child {
         margin-top: 30%;
     }
 }
 
 @media screen and (min-width: 1025px) {
-    .article {
+    .article:first-child {
         margin-top: 10%;
     }
 }
