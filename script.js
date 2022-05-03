@@ -6,6 +6,12 @@ let width = screen.width;
 AOS.init();
 
 
+document.addEventListener('load', function(){
+    if (width <= 1025){
+
+    }
+})
+
 document.addEventListener('scroll', function () {
     if (window.pageYOffset > sticky) {
         navbar.classList.add("sticky")
