@@ -2,6 +2,7 @@ const navbar = document.querySelector('div.navbar')
 const article = document.querySelectorAll('div.article')
 const curtain = document.querySelectorAll('div.curtain')
 const sticky = window.pageYOffset;
+let width = screen.width;
 AOS.init();
 
 
