@@ -70,6 +70,10 @@ body {
     gap: 5%;
 }
 
+.name>h1{
+font-size: 1.5em;
+} 
+
 .navigation {
     display: flex;
     width: 20%;
