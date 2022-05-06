@@ -13,8 +13,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #04151F;
-    height: 300vh;
-    width: 100%;
     background-image: url('https://freesvg.org/img/Abstract-Pattern-36--Arvin61r58.png');
 }
 
@@ -35,6 +33,7 @@ body {
     width: 70%;
     height: 5%;
     top: 1%;
+    font-size: 1.2vw;
     background-color: #04151F;
     color: #EFD6AC;
     border-radius: 0.5rem;
@@ -71,7 +70,7 @@ body {
 }
 
 .name>h1{
-font-size: 1.5em;
+font-size: 1.6vw;
 } 
 
 .navigation {
@@ -103,8 +102,8 @@ font-size: 1.5em;
 .hamburger-lines {
     display: flex;
     visibility: hidden;
-    height: 70%;
-    width: 70%;
+    height: 3vh;
+    width: 4vw;
     top: 17px;
     right: 0;
     z-index: 2;
@@ -140,7 +139,6 @@ font-size: 1.5em;
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
     gap: 2%;
 }
 
@@ -285,7 +283,7 @@ font-size: 1.5em;
 
 .footer {
     display: flex;
-    width: 100vw;
+    width: 100%;
     align-self: center;
     height: 3%;
     bottom: 0;
@@ -329,6 +327,14 @@ font-size: 1.5em;
         padding-top: 2%;
         padding-bottom: 6%;
     }
+
+    .hamburger-lines{
+        visibility: visible;
+    }
+
+    .navigation{
+        justify-content: right;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -343,6 +349,11 @@ font-size: 1.5em;
     .navbar {
         width: 90%;
         height: 7%;
+        font-size: 2.5vw;
+    }
+
+    .name>h1{
+        font-size: 3vw;
     }
 
     .header {
@@ -353,6 +364,12 @@ font-size: 1.5em;
     .article>.header {
         padding-top: 8%;
         padding-bottom: 6%;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .article:first-child {
+        margin-top:15vh;
     }
 }
 

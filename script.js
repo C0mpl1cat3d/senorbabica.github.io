@@ -1,16 +1,20 @@
 const navbar = document.querySelector('div.navbar')
 const article = document.querySelectorAll('div.article')
-const curtain = document.querySelectorAll('div.curtain')
+const navigation = document.querySelectorAll('.navigation>a')
 const sticky = window.pageYOffset;
-let width = screen.width;
+let width = window.innerWidth;
 AOS.init();
 
 
-document.addEventListener('load', function(){
+window.addEventListener('load', (event) => {
     if (width <= 1025){
-
+        for (let index = 0; index < navigation.length; index++) {
+            navigation[index].remove();
+        }
+        console.log('ASDASD')
     }
-})
+    
+  });
 
 document.addEventListener('scroll', function () {
     if (window.pageYOffset > sticky) {
@@ -20,6 +24,7 @@ document.addEventListener('scroll', function () {
         navbar.classList.remove("sticky");
         article[0].classList.remove("sticked")
     }
+
 })
 
 function checkVisible(elm) {
