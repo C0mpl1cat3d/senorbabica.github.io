@@ -45,10 +45,9 @@ document.addEventListener('click', function(event){
             }
         ],
         {
-            duration: 500, // 1.5s,
+            duration: 400, // 1.5s,
             easing: "ease",
             fill: "forwards", 
-            delay: 400
         }
         )
         const line1Anim = line[0].animate([
@@ -60,7 +59,6 @@ document.addEventListener('click', function(event){
             duration: 500,
             easing: "ease",
             fill: "forwards",
-            delay: 400
         })
         const line3Anim = line[2].animate([
             {
@@ -71,7 +69,6 @@ document.addEventListener('click', function(event){
             duration: 500,
             easing: "ease",
             fill: "forwards",
-            delay: 400
         })
     }
     else if(((event.target === hamburger)|| event.target.classList.contains('line')) &&(hamburger.classList.contains('active'))){
@@ -83,7 +80,7 @@ document.addEventListener('click', function(event){
             }
         ],
         {
-            duration: 200, // 1.5s,
+            duration: 400, 
             easing: "ease",
             fill: "forwards",
         }
@@ -118,7 +115,7 @@ document.addEventListener('click', function(event){
             easing: "ease-in-out",
         })
     }
-    
+
 })
 
 function checkVisible(elm) {
