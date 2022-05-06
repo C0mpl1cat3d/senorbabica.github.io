@@ -118,6 +118,7 @@ document.addEventListener('click', function(event){
             easing: "ease-in-out",
         })
     }
+    
 })
 
 function checkVisible(elm) {
