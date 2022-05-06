@@ -33,7 +33,7 @@ body {
     width: 70%;
     height: 5%;
     top: 1%;
-    font-size: 1.2vw;
+    font-size: 20px;
     background-color: #04151F;
     color: #EFD6AC;
     border-radius: 0.5rem;
@@ -70,7 +70,7 @@ body {
 }
 
 .name>h1{
-font-size: 1.6vw;
+font-size: 25px;
 } 
 
 .navigation {
@@ -162,7 +162,7 @@ font-size: 1.6vw;
     align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 50%;
+    height: 150vh;
     gap: 1%;
     background-color: #04151F;
     border-radius: 1rem;
@@ -349,11 +349,6 @@ font-size: 1.6vw;
     .navbar {
         width: 90%;
         height: 7%;
-        font-size: 2.5vw;
-    }
-
-    .name>h1{
-        font-size: 3vw;
     }
 
     .header {
@@ -374,9 +369,6 @@ font-size: 1.6vw;
 }
 
 @media screen and (max-width: 480px) {
-    .name {
-        visibility: hidden;
-    }
 
     .article:first-child {
         margin-top: 15vh;
@@ -385,6 +377,14 @@ font-size: 1.6vw;
     .header {
         padding-top: 3%;
         padding-bottom: 6%;
+    }
+
+    .navbar{
+        font-size: 15px;
+    }
+
+    .name>h1{
+        font-size: 20px;
     }
 }
 
