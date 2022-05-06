@@ -29,6 +29,15 @@ document.addEventListener('scroll', function () {
 document.addEventListener('click', function(event){
     if ((event.target === hamburger)&&!(hamburger.classList.contains('active'))){
         hamburger.classList.add('active')
+        const burgirAnim = hamburger.animate([
+            {
+                transform: "rotate(360deg)"
+            }
+        ],
+        {
+            duration: 400,
+            easing: "ease-in-out"
+        })
         const line2Anim = line[1].animate([
             {
                 transform: "rotate(90deg)",
@@ -36,9 +45,10 @@ document.addEventListener('click', function(event){
             }
         ],
         {
-            duration: 200, // 1.5s,
+            duration: 500, // 1.5s,
             easing: "ease",
-            fill: "forwards"
+            fill: "forwards", 
+            delay: 400
         }
         )
         const line1Anim = line[0].animate([
@@ -49,7 +59,8 @@ document.addEventListener('click', function(event){
         {
             duration: 500,
             easing: "ease",
-            fill: "forwards"
+            fill: "forwards",
+            delay: 400
         })
         const line3Anim = line[2].animate([
             {
@@ -59,7 +70,8 @@ document.addEventListener('click', function(event){
         {
             duration: 500,
             easing: "ease",
-            fill: "forwards"
+            fill: "forwards",
+            delay: 400
         })
     }
     else if((event.target === hamburger)&&(hamburger.classList.contains('active'))){
@@ -73,7 +85,7 @@ document.addEventListener('click', function(event){
         {
             duration: 200, // 1.5s,
             easing: "ease",
-            fill: "forwards"
+            fill: "forwards",
         }
         )
         const line1Anim = line[0].animate([
@@ -84,7 +96,7 @@ document.addEventListener('click', function(event){
         {
             duration: 500,
             easing: "ease",
-            fill: "forwards"
+            fill: "forwards",
         })
         const line3Anim = line[2].animate([
             {
@@ -94,7 +106,16 @@ document.addEventListener('click', function(event){
         {
             duration: 500,
             easing: "ease",
-            fill: "forwards"
+            fill: "forwards",
+        })
+        const burgirAnim = hamburger.animate([
+            {
+                transform: "rotate(-360deg)"
+            }
+        ],
+        {
+            duration: 500,
+            easing: "ease-in-out",
         })
     }
 })
