@@ -27,7 +27,7 @@ document.addEventListener('scroll', function () {
 })
 
 document.addEventListener('click', function(event){
-    if ((event.target === hamburger)&&!(hamburger.classList.contains('active'))){
+    if (((event.target === hamburger)|| event.target.classList.contains('line')) &&!(hamburger.classList.contains('active'))){
         hamburger.classList.add('active')
         const burgirAnim = hamburger.animate([
             {
@@ -74,7 +74,7 @@ document.addEventListener('click', function(event){
             delay: 400
         })
     }
-    else if((event.target === hamburger)&&(hamburger.classList.contains('active'))){
+    else if(((event.target === hamburger)|| event.target.classList.contains('line')) &&(hamburger.classList.contains('active'))){
         hamburger.classList.remove('active')
         const line2Anim = line[1].animate([
             {
