@@ -102,8 +102,8 @@ font-size: 1.6vw;
 .hamburger-lines {
     display: flex;
     visibility: hidden;
-    height: 3vh;
-    width: 4vw;
+    height: 30px;
+    width: 35px;
     top: 17px;
     right: 0;
     z-index: 2;
