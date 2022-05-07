@@ -28,14 +28,12 @@ body {
     width: auto;
     width: 100%;
     height: 0;
-    overflow: scroll;
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 999;
 }
 
 .fullres-img{
     display: flex;
-    overflow: scroll;
     object-fit: contain;
     width: auto;
     height: 90%;
