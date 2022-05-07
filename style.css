@@ -391,6 +391,11 @@ body {
         height: 7%;
     }
 
+    .active.overlay {
+        width: 92%;
+        right: 4%;
+    }
+
 }
 
 @media screen and (min-width: 768px) {
