@@ -62,6 +62,10 @@ document.addEventListener('click', function (event) {
 
 })
 
+document.addEventListener('dblclick', function (e) {
+    if (e.target.classList.contains('fullres-img') || e.target.classList.contains('image-explorer')) closeImgOverlay();
+})
+
 document.addEventListener("mouseover", function(event) {
     if (event.target.classList.contains('img-container')){
         currentIcon = event.target.querySelector('i.fa-magnifying-glass-plus')
