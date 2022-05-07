@@ -10,10 +10,20 @@ let currentIcon;
 const icons = document.querySelectorAll('i.fa-magnifying-glass-plus')
 const explorer = document.querySelector('.image-explorer')
 const fullres = document.querySelector('.fullres-img')
+const path = document.querySelector('path')
 const sticky = window.pageYOffset;
 let width = window.innerWidth;
 AOS.init();
 
+anime({
+    targets: 'path',
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 1500,
+    delay: function(el, i) { return i * 250 },
+    direction: 'alternate',
+    loop: true
+  });
 
 window.addEventListener('load', (event) => {
     if (width <= 1025) {
@@ -26,15 +36,15 @@ window.addEventListener('load', (event) => {
     body.classList.remove('lock')
 });
 
-window.addEventListener('resize', function(){
+window.addEventListener('resize', function () {
     width = this.window.innerWidth
-    
+
     if (width <= 1025) {
         for (let index = 0; index < navigation.length; index++) {
             navigation[index].style.display = "none";
         }
     }
-    else if(width > 1025) {
+    else if (width > 1025) {
         for (let index = 0; index < navigation.length; index++) {
             navigation[index].style.display = "initial";
         }
@@ -55,7 +65,7 @@ document.addEventListener('click', function (event) {
     if (((target === hamburger) || target.classList.contains('line')) && !(hamburger.classList.contains('active'))) openOverlay();
     else if (((target === hamburger) || target.classList.contains('line')) && (hamburger.classList.contains('active'))) closeOverlay();
     else if (target.classList.contains('link')) closeOverlay();
-    else if (target.classList.contains('fa-magnifying-glass-plus')){
+    else if (target.classList.contains('fa-magnifying-glass-plus')) {
         openImgOverlay(target);
     }
     else if (!target.classList.contains('fullres-img')) closeImgOverlay();
@@ -66,19 +76,19 @@ document.addEventListener('dblclick', function (e) {
     if (e.target.classList.contains('fullres-img') || e.target.classList.contains('image-explorer')) closeImgOverlay();
 })
 
-document.addEventListener("mouseover", function(event) {
-    if (event.target.classList.contains('img-container')){
+document.addEventListener("mouseover", function (event) {
+    if (event.target.classList.contains('img-container')) {
         currentIcon = event.target.querySelector('i.fa-magnifying-glass-plus')
         showIcon(currentIcon);
-    } 
-    else if(event.target.classList.contains('fa-magnifying-glass-plus')){
+    }
+    else if (event.target.classList.contains('fa-magnifying-glass-plus')) {
         currentIcon = event.target;
         showIcon(currentIcon)
     }
-    else if (!event.target.classList.contains('img-container')){
+    else if (!event.target.classList.contains('img-container')) {
         for (const i of icons) {
-            hideIcon(i)          
-        } 
+            hideIcon(i)
+        }
     }
 })
 
@@ -241,11 +251,11 @@ function openImgOverlay(target) {
             height: "100%"
         }
     ],
-    {
-        duration: 400,
-        easing: "ease-in-out",
-        fill: "forwards"
-    })
+        {
+            duration: 400,
+            easing: "ease-in-out",
+            fill: "forwards"
+        })
     let parent = target.parentNode
     const parentStyles = window.getComputedStyle(parent);
     const parentImage = parentStyles.backgroundImage;
@@ -255,16 +265,16 @@ function openImgOverlay(target) {
 
 }
 
-function closeImgOverlay(){
+function closeImgOverlay() {
     body.classList.remove('lock')
     const imgOverAnim = explorer.animate([
         {
             height: "0"
         }
     ],
-    {
-        duration: 400,
-        easing: "ease-in-out",
-        fill: "forwards"
-    })
+        {
+            duration: 400,
+            easing: "ease-in-out",
+            fill: "forwards"
+        })
 }
