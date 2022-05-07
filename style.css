@@ -38,7 +38,7 @@ body {
     overflow: scroll;
     object-fit: contain;
     width: auto;
-    height:fit-content;
+    height: 90%;
     max-width: 90%;
 }
 
