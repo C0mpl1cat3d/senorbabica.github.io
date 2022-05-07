@@ -3,6 +3,8 @@ const article = document.querySelectorAll('div.article')
 const navigation = document.querySelectorAll('.navigation>a')
 const hamburger = document.querySelector('#burger')
 const line = document.querySelectorAll('span.line')
+const overlay = document.querySelector('.overlay')
+const body = document.querySelector("body")
 const sticky = window.pageYOffset;
 let width = window.innerWidth;
 AOS.init();
@@ -29,14 +31,17 @@ document.addEventListener('scroll', function () {
 document.addEventListener('click', function(event){
     if (((event.target === hamburger)|| event.target.classList.contains('line')) &&!(hamburger.classList.contains('active'))){
         hamburger.classList.add('active')
+        overlay.classList.add('active')
+        body.classList.add('lock')
         const burgirAnim = hamburger.animate([
             {
-                transform: "rotate(360deg)"
+                transform: "rotate(360deg) translateX(2px)"
             }
         ],
         {
             duration: 400,
-            easing: "ease-in-out"
+            easing: "ease-in-out",
+            fill: "forwards"
         })
         const line2Anim = line[1].animate([
             {
@@ -47,7 +52,7 @@ document.addEventListener('click', function(event){
         {
             duration: 400, // 1.5s,
             easing: "ease",
-            fill: "forwards", 
+            fill: "forwards"
         }
         )
         const line1Anim = line[0].animate([
@@ -73,6 +78,18 @@ document.addEventListener('click', function(event){
     }
     else if(((event.target === hamburger)|| event.target.classList.contains('line')) &&(hamburger.classList.contains('active'))){
         hamburger.classList.remove('active')
+        overlay.classList.remove('active')
+        body.classList.remove('lock')
+        const burgirAnim2 = hamburger.animate([
+            {
+                transform: "rotate(-0deg)"
+            }
+        ],
+        {
+            duration: 400,
+            easing: "ease-in-out",
+            fill: "forwards"
+        })
         const line2Anim = line[1].animate([
             {
                 transform: "rotate(0)",
@@ -114,6 +131,11 @@ document.addEventListener('click', function(event){
             duration: 500,
             easing: "ease-in-out",
         })
+    }
+    else if (event.target.classList.contains('link')){
+        hamburger.classList.remove('active')
+        overlay.classList.remove('active')
+        body.classList.remove('lock') 
     }
 
 })
