@@ -77,7 +77,7 @@ document.addEventListener('dblclick', function (e) {
 })
 
 document.addEventListener("mouseover", function (event) {
-    if (event.target.classList.contains('img-container')) {
+    if (event.target.classList.contains('img-container') || event.target.classList.contains('project-img')) {
         currentIcon = event.target.querySelector('i.fa-magnifying-glass-plus')
         showIcon(currentIcon);
     }
@@ -85,7 +85,7 @@ document.addEventListener("mouseover", function (event) {
         currentIcon = event.target;
         showIcon(currentIcon)
     }
-    else if (!event.target.classList.contains('img-container')) {
+    else if (!event.target.classList.contains('img-container') || !event.target.classList.contains('project-img')) {
         for (const i of icons) {
             hideIcon(i)
         }
