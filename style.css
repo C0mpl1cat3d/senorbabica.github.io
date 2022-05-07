@@ -60,16 +60,14 @@ body {
 }
 
 .loader-container{
-    position: absolute;
-    top: 45%;
-    left: 45%;
-    transform: translate(-50%,-50%);
+    display: flex;
 }
 
+/*https://blog.hubspot.com/website/css-loading-animation*/ 
 .progress{
     position: relative;
     height: 10px;
-    width: 1110%;
+    width: 200px;
     border: 10px solid #C44900;
     border-radius: 15px;
 }

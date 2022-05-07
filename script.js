@@ -18,7 +18,7 @@ window.addEventListener('load', (event) => {
         }
     }
 
-    closePreloader();
+    //closePreloader();
     body.classList.remove('lock')
 });
 
