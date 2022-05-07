@@ -88,6 +88,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    justify-self: center;
     width: 70%;
     gap: 2%;
 }
@@ -490,19 +491,20 @@ body {
         margin-top: 20vh;
     }
 
-    .layout {
-        width: 90%;
-    }
-
     .navbar {
-        width: 90%;
         height: 7%;
+        width: 90%;
     }
 
     .active.overlay {
         width: 92%;
         right: 4%;
     }
+
+    .layout{
+        width: 90%;
+    }
+
 
 }
 
