@@ -29,8 +29,20 @@ document.addEventListener('scroll', function () {
 })
 
 document.addEventListener('click', function(event){
-    if (((event.target === hamburger)|| event.target.classList.contains('line')) &&!(hamburger.classList.contains('active'))){
-        hamburger.classList.add('active')
+    if (((event.target === hamburger)|| event.target.classList.contains('line')) &&!(hamburger.classList.contains('active'))) openOverlay();
+    else if(((event.target === hamburger)|| event.target.classList.contains('line')) &&(hamburger.classList.contains('active'))) closeOverlay();
+    else if (event.target.classList.contains('link')) closeOverlay();
+
+})
+
+function checkVisible(elm) {
+    var rect = elm.getBoundingClientRect();
+    var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+    return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+}
+
+function openOverlay(){
+    hamburger.classList.add('active')
         overlay.classList.add('active')
         body.classList.add('lock')
         const burgirAnim = hamburger.animate([
@@ -75,124 +87,61 @@ document.addEventListener('click', function(event){
             easing: "ease",
             fill: "forwards",
         })
-    }
-    else if(((event.target === hamburger)|| event.target.classList.contains('line')) &&(hamburger.classList.contains('active'))){
-        hamburger.classList.remove('active')
-        overlay.classList.remove('active')
-        body.classList.remove('lock')
-        const burgirAnim2 = hamburger.animate([
-            {
-                transform: "rotate(-0deg)"
-            }
-        ],
-        {
-            duration: 400,
-            easing: "ease-in-out",
-            fill: "forwards"
-        })
-        const line2Anim = line[1].animate([
-            {
-                transform: "rotate(0)",
-                opacity: "1"
-            }
-        ],
-        {
-            duration: 400, 
-            easing: "ease",
-            fill: "forwards",
-        }
-        )
-        const line1Anim = line[0].animate([
-            {
-                transform: "rotate(0)"
-            }
-        ],
-        {
-            duration: 500,
-            easing: "ease",
-            fill: "forwards",
-        })
-        const line3Anim = line[2].animate([
-            {
-                transform: "rotate(0)"
-            }
-        ],
-        {
-            duration: 500,
-            easing: "ease",
-            fill: "forwards",
-        })
-        const burgirAnim = hamburger.animate([
-            {
-                transform: "rotate(-360deg)"
-            }
-        ],
-        {
-            duration: 500,
-            easing: "ease-in-out",
-        })
-    }
-    else if (event.target.classList.contains('link')){
-        hamburger.classList.remove('active')
-        overlay.classList.remove('active')
-        body.classList.remove('lock') 
-        const burgirAnim2 = hamburger.animate([
-            {
-                transform: "rotate(-0deg)"
-            }
-        ],
-        {
-            duration: 400,
-            easing: "ease-in-out",
-            fill: "forwards"
-        })
-        const line2Anim = line[1].animate([
-            {
-                transform: "rotate(0)",
-                opacity: "1"
-            }
-        ],
-        {
-            duration: 400, 
-            easing: "ease",
-            fill: "forwards",
-        }
-        )
-        const line1Anim = line[0].animate([
-            {
-                transform: "rotate(0)"
-            }
-        ],
-        {
-            duration: 500,
-            easing: "ease",
-            fill: "forwards",
-        })
-        const line3Anim = line[2].animate([
-            {
-                transform: "rotate(0)"
-            }
-        ],
-        {
-            duration: 500,
-            easing: "ease",
-            fill: "forwards",
-        })
-        const burgirAnim = hamburger.animate([
-            {
-                transform: "rotate(-360deg)"
-            }
-        ],
-        {
-            duration: 500,
-            easing: "ease-in-out",
-        })
-    }
+}
 
-})
-
-function checkVisible(elm) {
-    var rect = elm.getBoundingClientRect();
-    var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-    return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+function closeOverlay(){
+    hamburger.classList.remove('active')
+    overlay.classList.remove('active')
+    body.classList.remove('lock')
+    const burgirAnim2 = hamburger.animate([
+        {
+            transform: "rotate(-0deg)"
+        }
+    ],
+    {
+        duration: 400,
+        easing: "ease-in-out",
+        fill: "forwards"
+    })
+    const line2Anim = line[1].animate([
+        {
+            transform: "rotate(0)",
+            opacity: "1"
+        }
+    ],
+    {
+        duration: 400, 
+        easing: "ease",
+        fill: "forwards",
+    }
+    )
+    const line1Anim = line[0].animate([
+        {
+            transform: "rotate(0)"
+        }
+    ],
+    {
+        duration: 500,
+        easing: "ease",
+        fill: "forwards",
+    })
+    const line3Anim = line[2].animate([
+        {
+            transform: "rotate(0)"
+        }
+    ],
+    {
+        duration: 500,
+        easing: "ease",
+        fill: "forwards",
+    })
+    const burgirAnim = hamburger.animate([
+        {
+            transform: "rotate(-360deg)"
+        }
+    ],
+    {
+        duration: 500,
+        easing: "ease-in-out",
+    })
 }
