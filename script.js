@@ -6,6 +6,8 @@ const line = document.querySelectorAll('span.line')
 const overlay = document.querySelector('.overlay')
 const body = document.querySelector("body")
 const preloader = document.querySelector('.preloader')
+let currentIcon;
+const icons = document.querySelectorAll('i.fa-magnifying-glass-plus')
 const sticky = window.pageYOffset;
 let width = window.innerWidth;
 AOS.init();
@@ -24,18 +26,34 @@ window.addEventListener('load', (event) => {
 
 document.addEventListener('scroll', function () {
     if (window.pageYOffset > sticky) {
-       navbar.classList.add("sticky")
+        navbar.classList.add("sticky")
     } else {
         navbar.classList.remove("sticky");
     }
 
-   })
+})
 
 document.addEventListener('click', function (event) {
     if (((event.target === hamburger) || event.target.classList.contains('line')) && !(hamburger.classList.contains('active'))) openOverlay();
     else if (((event.target === hamburger) || event.target.classList.contains('line')) && (hamburger.classList.contains('active'))) closeOverlay();
     else if (event.target.classList.contains('link')) closeOverlay();
 
+})
+
+document.addEventListener("mouseover", function(event) {
+    if (event.target.classList.contains('img-container')){
+        currentIcon = event.target.querySelector('i.fa-magnifying-glass-plus')
+        showIcon(currentIcon);
+    } 
+    else if(event.target.classList.contains('fa-magnifying-glass-plus')){
+        currentIcon = event.target;
+        showIcon(currentIcon)
+    }
+    else if (!event.target.classList.contains('img-container')){
+        for (const i of icons) {
+            hideIcon(i)          
+        } 
+    }
 })
 
 function checkVisible(elm) {
@@ -161,4 +179,30 @@ function closePreloader() {
             fill: "forwards"
         })
     setTimeout(function () { preloader.remove() }, 500);
+}
+
+function showIcon(currI) {
+    const iconAnim = currI.animate([
+        {
+            opacity: 1
+        }
+    ],
+        {
+            duration: 200,
+            easing: "ease-in-out",
+            fill: "forwards"
+        })
+}
+
+function hideIcon(currI) {
+    const iconAnim = currI.animate([
+        {
+            opacity: 0
+        }
+    ],
+        {
+            duration: 200,
+            easing: "ease-in-out",
+            fill: "forwards"
+        })
 }

@@ -240,6 +240,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    overflow: hidden;
+    justify-content: right;
     width: 45%;
     height: 85%;
     border-radius: 0.5rem;
@@ -334,6 +336,20 @@ body {
     height: 3%;
     bottom: 0;
     background-color: black;
+}
+
+.fa-magnifying-glass-plus{
+    color: #EFD6AC;
+    position: absolute;
+    font-size: 2em;
+    padding: 10px;
+    opacity: 0;
+    cursor: pointer;
+    transition: 0.1s ease-in;
+}
+
+.fa-magnifying-glass-plus:hover{
+    transform: rotate(10deg);
 }
 
 .preloader {
