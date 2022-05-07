@@ -162,6 +162,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: 0.2s;
 }
 
 .hamburger-lines .line {
