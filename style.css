@@ -16,6 +16,57 @@ body {
     background-image: url('https://freesvg.org/img/Abstract-Pattern-36--Arvin61r58.png');
 }
 
+.preloader {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    background-color: #04151F;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+}
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+.loading-container{
+    display: flex;
+    width: 85px;
+    height: 85px;
+}
+
 .lock {
     overflow: hidden;
 }
@@ -53,7 +104,7 @@ body {
     transition: 0.5s;
 }
 
-.link:hover{
+.link:hover {
     color: #93856b;
 }
 
@@ -64,7 +115,7 @@ body {
 }
 
 .active.hamburger-lines {
-    z-index: 1001;
+    z-index: 20;
 }
 
 .layout {
@@ -204,7 +255,7 @@ body {
     height: 10%;
 }
 
-.header>h2{
+.header>h2 {
     font-size: 2em;
 }
 
@@ -337,6 +388,15 @@ body {
     bottom: 0;
     background-color: black;
 }
+
+@keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 
 @media screen and (max-width: 1025px) {
     .article-content {
