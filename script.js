@@ -24,12 +24,12 @@ window.addEventListener('load', (event) => {
 
 document.addEventListener('scroll', function () {
     if (window.pageYOffset > sticky) {
-        navbar.classList.add("sticky")
+       navbar.classList.add("sticky")
     } else {
         navbar.classList.remove("sticky");
     }
 
-})
+   })
 
 document.addEventListener('click', function (event) {
     if (((event.target === hamburger) || event.target.classList.contains('line')) && !(hamburger.classList.contains('active'))) openOverlay();
