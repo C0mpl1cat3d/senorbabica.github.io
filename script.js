@@ -8,6 +8,8 @@ const body = document.querySelector("body")
 const preloader = document.querySelector('.preloader')
 let currentIcon;
 const icons = document.querySelectorAll('i.fa-magnifying-glass-plus')
+const explorer = document.querySelector('.image-explorer')
+const fullres = document.querySelector('.fullres-img')
 const sticky = window.pageYOffset;
 let width = window.innerWidth;
 AOS.init();
@@ -16,13 +18,28 @@ AOS.init();
 window.addEventListener('load', (event) => {
     if (width <= 1025) {
         for (let index = 0; index < navigation.length; index++) {
-            navigation[index].remove();
+            navigation[index].style.display = "none";
         }
     }
 
     closePreloader();
     body.classList.remove('lock')
 });
+
+window.addEventListener('resize', function(){
+    width = this.window.innerWidth
+    
+    if (width <= 1025) {
+        for (let index = 0; index < navigation.length; index++) {
+            navigation[index].style.display = "none";
+        }
+    }
+    else if(width > 1025) {
+        for (let index = 0; index < navigation.length; index++) {
+            navigation[index].style.display = "initial";
+        }
+    }
+})
 
 document.addEventListener('scroll', function () {
     if (window.pageYOffset > sticky) {
@@ -34,9 +51,14 @@ document.addEventListener('scroll', function () {
 })
 
 document.addEventListener('click', function (event) {
-    if (((event.target === hamburger) || event.target.classList.contains('line')) && !(hamburger.classList.contains('active'))) openOverlay();
-    else if (((event.target === hamburger) || event.target.classList.contains('line')) && (hamburger.classList.contains('active'))) closeOverlay();
-    else if (event.target.classList.contains('link')) closeOverlay();
+    let target = event.target
+    if (((target === hamburger) || target.classList.contains('line')) && !(hamburger.classList.contains('active'))) openOverlay();
+    else if (((target === hamburger) || target.classList.contains('line')) && (hamburger.classList.contains('active'))) closeOverlay();
+    else if (target.classList.contains('link')) closeOverlay();
+    else if (target.classList.contains('fa-magnifying-glass-plus')){
+        openImgOverlay(target);
+    }
+    else if (!target.classList.contains('fullres-img')) closeImgOverlay();
 
 })
 
@@ -205,4 +227,40 @@ function hideIcon(currI) {
             easing: "ease-in-out",
             fill: "forwards"
         })
+}
+
+//https://iampalash.hashnode.dev/get-background-image-url-for-any-element-using-javascript
+function openImgOverlay(target) {
+    body.classList.add('lock')
+    const imgOverAnim = explorer.animate([
+        {
+            height: "100%"
+        }
+    ],
+    {
+        duration: 400,
+        easing: "ease-in-out",
+        fill: "forwards"
+    })
+    let parent = target.parentNode
+    const parentStyles = window.getComputedStyle(parent);
+    const parentImage = parentStyles.backgroundImage;
+    const url = parentImage.slice(5, -2);
+
+    fullres.src = url;
+
+}
+
+function closeImgOverlay(){
+    body.classList.remove('lock')
+    const imgOverAnim = explorer.animate([
+        {
+            height: "0"
+        }
+    ],
+    {
+        duration: 400,
+        easing: "ease-in-out",
+        fill: "forwards"
+    })
 }
