@@ -35,7 +35,7 @@ document.addEventListener('click', function(event){
         body.classList.add('lock')
         const burgirAnim = hamburger.animate([
             {
-                transform: "rotate(360deg) translateX(2px)"
+                transform: "rotate(360deg) translateX(5px)"
             }
         ],
         {
@@ -136,6 +136,57 @@ document.addEventListener('click', function(event){
         hamburger.classList.remove('active')
         overlay.classList.remove('active')
         body.classList.remove('lock') 
+        const burgirAnim2 = hamburger.animate([
+            {
+                transform: "rotate(-0deg)"
+            }
+        ],
+        {
+            duration: 400,
+            easing: "ease-in-out",
+            fill: "forwards"
+        })
+        const line2Anim = line[1].animate([
+            {
+                transform: "rotate(0)",
+                opacity: "1"
+            }
+        ],
+        {
+            duration: 400, 
+            easing: "ease",
+            fill: "forwards",
+        }
+        )
+        const line1Anim = line[0].animate([
+            {
+                transform: "rotate(0)"
+            }
+        ],
+        {
+            duration: 500,
+            easing: "ease",
+            fill: "forwards",
+        })
+        const line3Anim = line[2].animate([
+            {
+                transform: "rotate(0)"
+            }
+        ],
+        {
+            duration: 500,
+            easing: "ease",
+            fill: "forwards",
+        })
+        const burgirAnim = hamburger.animate([
+            {
+                transform: "rotate(-360deg)"
+            }
+        ],
+        {
+            duration: 500,
+            easing: "ease-in-out",
+        })
     }
 
 })
