@@ -384,7 +384,7 @@ body {
     width: 0px;
     height: 10px;
     border-radius: 15px;
-    animation: progress 1.5s infinite linear;    
+    animation: progress 1s infinite linear;    
 }
 @keyframes progress{
     0%{
