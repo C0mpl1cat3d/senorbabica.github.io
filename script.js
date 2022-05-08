@@ -70,6 +70,7 @@ document.addEventListener('click', function (event) {
 
 
     if (target.classList.contains('project-overlay')) expandProject(target);
+    else if (target.classList.contains('fa-arrow-up')) minimizeProject(target);
 
 })
 
@@ -282,11 +283,13 @@ function closeImgOverlay() {
 
 function expandProject(target) {
     let parent = target.parentNode
-    let sibling = parent.previousElementSibling;
-    sibling.style.display = 'none'
+    let imgSibling = parent.previousElementSibling;
+    let headerSibling = target.nextElementSibling;
+    headerSibling.style.display = "flex"
+    imgSibling.style.display = 'none'
     parent.classList.add('project-descr-expanded');
-    let overlaySibling = target.previousElementSibling;
-    overlaySibling.style.display = 'block'
+    let smallImgSibling = target.previousElementSibling;
+    smallImgSibling.style.display = 'flex'
 
     const projectOverlayAnim = target.animate([
         {
@@ -299,4 +302,31 @@ function expandProject(target) {
         easing: 'ease-in-out',
         fill: 'forwards'
     })
+    target.style.display = "none";
+}
+
+function minimizeProject(target) {
+    let projectImg = target.parentNode
+    let overlay = projectImg.nextElementSibling;
+    let info = overlay.nextElementSibling;
+    let parent = projectImg.parentNode
+    parent.classList.remove('project-descr-expanded');
+    let sibling = parent.previousElementSibling; 
+
+    sibling.style.display = 'flex'
+    projectImg.style.display = 'none'
+    info.style.display = 'none'
+
+    overlay.style.display = "flex";
+    const projectOverlayAnim = overlay.animate([
+        {
+            height: "40%",
+            opacity: 1
+        }
+    ],
+    {
+        duration: 500,
+        easing: 'ease-in-out',
+        fill: 'forwards'
+   })
 }
