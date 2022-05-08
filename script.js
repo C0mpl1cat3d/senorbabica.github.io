@@ -6,24 +6,15 @@ const line = document.querySelectorAll('span.line')
 const overlay = document.querySelector('.overlay')
 const body = document.querySelector("body")
 const preloader = document.querySelector('.preloader')
-let currentIcon;
 const icons = document.querySelectorAll('i.fa-magnifying-glass-plus')
 const explorer = document.querySelector('.image-explorer')
 const fullres = document.querySelector('.fullres-img')
+const inactive = document.querySelector('.fa-angles-down')
 const path = document.querySelector('path')
+let currentIcon;
 const sticky = window.pageYOffset;
 let width = window.innerWidth;
 AOS.init();
-
-anime({
-    targets: 'path',
-    strokeDashoffset: [anime.setDashoffset, 0],
-    easing: 'easeInOutSine',
-    duration: 1500,
-    delay: function(el, i) { return i * 250 },
-    direction: 'alternate',
-    loop: true
-  });
 
 window.addEventListener('load', (event) => {
     if (width <= 1025) {
@@ -32,6 +23,7 @@ window.addEventListener('load', (event) => {
         }
     }
 
+    inactivityTime()
     closePreloader();
     body.classList.remove('lock')
 });
@@ -269,6 +261,7 @@ function openImgOverlay(target) {
 
 function closeImgOverlay() {
     body.classList.remove('lock')
+    inactive.style.display = 'none'
     const imgOverAnim = explorer.animate([
         {
             height: "0"
@@ -303,11 +296,11 @@ function expandProject(target) {
             opacity: 0
         }
     ],
-    {
-        duration: 500,
-        easing: 'ease-in-out',
-        fill: 'forwards'
-    })
+        {
+            duration: 500,
+            easing: 'ease-in-out',
+            fill: 'forwards'
+        })
     target.style.display = "none";
 }
 
@@ -317,7 +310,7 @@ function minimizeProject(target) {
     let info = overlay.nextElementSibling;
     let parent = projectImg.parentNode
     parent.classList.remove('project-descr-expanded');
-    let sibling = parent.previousElementSibling; 
+    let sibling = parent.previousElementSibling;
 
     sibling.style.display = 'flex'
     projectImg.style.display = 'none'
@@ -330,9 +323,40 @@ function minimizeProject(target) {
             opacity: 1
         }
     ],
-    {
-        duration: 500,
-        easing: 'ease-in-out',
-        fill: 'forwards'
-   })
+        {
+            duration: 500,
+            easing: 'ease-in-out',
+            fill: 'forwards'
+        })
+}
+
+let inactivityTime = function () {
+    let time;
+    let events = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'];
+    events.forEach(function (name) {
+        document.addEventListener(name, function () {
+            resetTimer();
+            closeImgOverlay();
+        })
+    });
+
+    function resetTimer() {
+        clearTimeout(time);
+        time = setTimeout(expandInactiveOverlay, 5 * 1000)
+    }
+};
+
+function expandInactiveOverlay() {
+    body.classList.add('lock')
+    inactive.style.display = 'flex'
+    const imgOverAnim = explorer.animate([
+        {
+            height: "100%"
+        }
+    ],
+        {
+            duration: 400,
+            easing: "ease-in-out",
+            fill: "forwards"
+        })
 }
