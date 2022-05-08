@@ -635,6 +635,10 @@ body {
     .projects{
         height: 60%;
     }
+
+    .project{
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 768px) {
