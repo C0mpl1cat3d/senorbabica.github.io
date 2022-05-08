@@ -240,6 +240,7 @@ function hideIcon(currI) {
 //https://iampalash.hashnode.dev/get-background-image-url-for-any-element-using-javascript
 function openImgOverlay(target) {
     body.classList.add('lock')
+    fullres.style.display = 'flex'
     const imgOverAnim = explorer.animate([
         {
             height: "100%"
@@ -261,7 +262,6 @@ function openImgOverlay(target) {
 
 function closeImgOverlay() {
     body.classList.remove('lock')
-    inactive.style.display = 'none'
     const imgOverAnim = explorer.animate([
         {
             height: "0"
@@ -272,6 +272,7 @@ function closeImgOverlay() {
             easing: "ease-in-out",
             fill: "forwards"
         })
+        setTimeout(function(){ fullres.style.display = 'none' }, 400);
 }
 
 function expandProject(target) {
@@ -336,13 +337,13 @@ let inactivityTime = function () {
     events.forEach(function (name) {
         document.addEventListener(name, function () {
             resetTimer();
-            closeImgOverlay();
+            if (inactive.style.display == 'flex') minimizeInactiveOverlay();
         })
     });
 
     function resetTimer() {
         clearTimeout(time);
-        time = setTimeout(expandInactiveOverlay, 5 * 1000)
+        if (fullres.style.display != 'flex') time = setTimeout(expandInactiveOverlay, 5 * 1000);
     }
 };
 
@@ -352,6 +353,20 @@ function expandInactiveOverlay() {
     const imgOverAnim = explorer.animate([
         {
             height: "100%"
+        }
+    ],
+        {
+            duration: 400,
+            easing: "ease-in-out",
+            fill: "forwards"
+        })
+}
+
+function minimizeInactiveOverlay(){
+    inactive.style.display = 'none'
+    const imgOverAnim = explorer.animate([
+        {
+            height: "0"
         }
     ],
         {
