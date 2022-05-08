@@ -65,10 +65,11 @@ document.addEventListener('click', function (event) {
     if (((target === hamburger) || target.classList.contains('line')) && !(hamburger.classList.contains('active'))) openOverlay();
     else if (((target === hamburger) || target.classList.contains('line')) && (hamburger.classList.contains('active'))) closeOverlay();
     else if (target.classList.contains('link')) closeOverlay();
-    else if (target.classList.contains('fa-magnifying-glass-plus')) {
-        openImgOverlay(target);
-    }
+    else if (target.classList.contains('fa-magnifying-glass-plus')) openImgOverlay(target);
     else if (!target.classList.contains('fullres-img')) closeImgOverlay();
+
+
+    if (target.classList.contains('project-overlay')) expandProject(target);
 
 })
 
@@ -277,4 +278,25 @@ function closeImgOverlay() {
             easing: "ease-in-out",
             fill: "forwards"
         })
+}
+
+function expandProject(target) {
+    let parent = target.parentNode
+    let sibling = parent.previousElementSibling;
+    sibling.style.display = 'none'
+    parent.classList.add('project-descr-expanded');
+    let overlaySibling = target.previousElementSibling;
+    overlaySibling.style.display = 'block'
+
+    const projectOverlayAnim = target.animate([
+        {
+            height: 0,
+            opacity: 0
+        }
+    ],
+    {
+        duration: 500,
+        easing: 'ease-in-out',
+        fill: 'forwards'
+    })
 }
