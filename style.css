@@ -341,10 +341,26 @@ body {
     height: 90%;
     margin: 2%;
     border-radius: 1.5rem;
-    background-image: url('https://newevolutiondesigns.com/images/freebies/cool-4k-iphone-wallpaper-10.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.second.project-img {
+    background-image: url('https://i.pinimg.com/originals/f1/6f/ed/f16fedc86686146624897737cf4338d8.jpg');
+}
+
+
+.project-img.third {
+    background-image: url('https://www.pixel4k.com/wp-content/uploads/2019/07/colorful-skull-dark-art_1563222221.jpg');
+}
+
+.project-img.fourth {
+    background-image: url('https://browsecat.net/sites/default/files/cool-4k-wallpapers-wallpapers-96149-699287-148069.png');
+}
+
+.project-img.first {
+    background-image: url('https://newevolutiondesigns.com/images/freebies/cool-4k-iphone-wallpaper-10.jpg');
 }
 
 .project-img-s {
@@ -391,11 +407,11 @@ body {
 }
 
 .project-descr-expanded::-webkit-scrollbar {
-    width: 0; 
-    background: transparent; 
+    width: 0;
+    background: transparent;
 }
 
-.fa-arrow-up{
+.fa-arrow-up {
     display: flex;
     position: absolute;
     color: #EFD6AC;
@@ -417,7 +433,7 @@ body {
     margin: 0;
 }
 
-.project-info{
+.project-info {
     display: none;
     grid-column-start: 2;
     font-size: 1.2em;

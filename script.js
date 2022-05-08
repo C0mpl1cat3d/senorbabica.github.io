@@ -289,6 +289,12 @@ function expandProject(target) {
     imgSibling.style.display = 'none'
     parent.classList.add('project-descr-expanded');
     let smallImgSibling = target.previousElementSibling;
+
+    const imgStyles = window.getComputedStyle(imgSibling);
+    const parentImage = imgStyles.backgroundImage;
+    const url = parentImage.slice(5, -2);
+
+    smallImgSibling.style.backgroundImage = "url('" + url + "')"
     smallImgSibling.style.display = 'flex'
 
     const projectOverlayAnim = target.animate([
