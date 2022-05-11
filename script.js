@@ -363,6 +363,7 @@ function expandInactiveOverlay() {
 }
 
 function minimizeInactiveOverlay(){
+    body.classList.remove('lock')
     inactive.style.display = 'none'
     const imgOverAnim = explorer.animate([
         {
