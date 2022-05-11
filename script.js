@@ -363,7 +363,6 @@ function expandInactiveOverlay() {
 }
 
 function minimizeInactiveOverlay(){
-    body.classList.remove('lock')
     inactive.style.display = 'none'
     const imgOverAnim = explorer.animate([
         {
@@ -375,4 +374,5 @@ function minimizeInactiveOverlay(){
             easing: "ease-in-out",
             fill: "forwards"
         })
+    body.classList.remove('lock')
 }
