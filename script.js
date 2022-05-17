@@ -374,4 +374,5 @@ function minimizeInactiveOverlay(){
             easing: "ease-in-out",
             fill: "forwards"
         })
+    body.classList.remove('lock')
 }
