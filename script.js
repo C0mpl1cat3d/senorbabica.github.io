@@ -1,5 +1,4 @@
 const navbar = document.querySelector('div.navbar')
-const article = document.querySelectorAll('div.article')
 const navigation = document.querySelectorAll('.navigation>a')
 const hamburger = document.querySelector('#burger')
 const line = document.querySelectorAll('span.line')
@@ -10,7 +9,6 @@ const icons = document.querySelectorAll('i.fa-magnifying-glass-plus')
 const explorer = document.querySelector('.image-explorer')
 const fullres = document.querySelector('.fullres-img')
 const inactive = document.querySelector('.fa-angles-down')
-const path = document.querySelector('path')
 let currentIcon;
 const sticky = window.pageYOffset;
 let width = window.innerWidth;
@@ -87,8 +85,8 @@ document.addEventListener("mouseover", function (event) {
 })
 
 function checkVisible(elm) {
-    var rect = elm.getBoundingClientRect();
-    var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+    let rect = elm.getBoundingClientRect();
+    let viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
     return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
 }
 
@@ -343,7 +341,7 @@ let inactivityTime = function () {
 
     function resetTimer() {
         clearTimeout(time);
-        if (fullres.style.display != 'flex') time = setTimeout(expandInactiveOverlay, 5 * 1000);
+        //if (fullres.style.display != 'flex') time = setTimeout(expandInactiveOverlay, 5 * 1000);
     }
 };
 
