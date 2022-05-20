@@ -304,6 +304,7 @@ body {
     border-radius: 1rem;
     padding-bottom: 2%;
     box-shadow: 0 0 10px 0 #573030;
+    background-image: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 0H0v36h36V0zM15.126 2H2v13.126c.367.094.714.24 1.032.428L15.554 3.032c-.188-.318-.334-.665-.428-1.032zM18 4.874V18H4.874c-.094-.367-.24-.714-.428-1.032L16.968 4.446c.318.188.665.334 1.032.428zM22.874 2h11.712L20 16.586V4.874c1.406-.362 2.512-1.468 2.874-2.874zm10.252 18H20v13.126c.367.094.714.24 1.032.428l12.522-12.522c-.188-.318-.334-.665-.428-1.032zM36 22.874V36H22.874c-.094-.367-.24-.714-.428-1.032l12.522-12.522c.318.188.665.334 1.032.428zm0-7.748V3.414L21.414 18h11.712c.362-1.406 1.468-2.512 2.874-2.874zm-18 18V21.414L3.414 36h11.712c.362-1.406 1.468-2.512 2.874-2.874zM4.874 20h11.712L2 34.586V22.874c1.406-.362 2.512-1.468 2.874-2.874z' fill='%23204052' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
 .project-container {
@@ -312,7 +313,7 @@ body {
     grid-template-columns: auto auto;
     width: 95%;
     height: 90%;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .project {
@@ -323,18 +324,16 @@ body {
     justify-content: center;
     width: 100%;
     height: 100%;
-    gap: .5rem;
+    gap: 1rem;
     background-color: #04151F;
-    background-image: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 0H0v36h36V0zM15.126 2H2v13.126c.367.094.714.24 1.032.428L15.554 3.032c-.188-.318-.334-.665-.428-1.032zM18 4.874V18H4.874c-.094-.367-.24-.714-.428-1.032L16.968 4.446c.318.188.665.334 1.032.428zM22.874 2h11.712L20 16.586V4.874c1.406-.362 2.512-1.468 2.874-2.874zm10.252 18H20v13.126c.367.094.714.24 1.032.428l12.522-12.522c-.188-.318-.334-.665-.428-1.032zM36 22.874V36H22.874c-.094-.367-.24-.714-.428-1.032l12.522-12.522c.318.188.665.334 1.032.428zm0-7.748V3.414L21.414 18h11.712c.362-1.406 1.468-2.512 2.874-2.874zm-18 18V21.414L3.414 36h11.712c.362-1.406 1.468-2.512 2.874-2.874zM4.874 20h11.712L2 34.586V22.874c1.406-.362 2.512-1.468 2.874-2.874z' fill='%23204052' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
-    border-radius: 1rem;
+   border-radius: 1rem;
 }
 
 .project-img {
     display: flex;
     width: 50%;
     height: 90%;
-    margin: 2%;
-    padding: 2%;
+    margin-right: 0;
     border-radius: 1.5rem;
     background-size: cover;
     background-repeat: no-repeat;
@@ -376,11 +375,9 @@ body {
     position: relative;
     width: 50%;
     height: 90%;
-    padding: 2%;
-    margin: 2%;
+    margin: 0;
     font-size: 1.5em;
     border-radius: 1.5rem;
-    margin-bottom: 4%;
     background-color: #04151F;
     text-align: center;
     justify-content: center;
@@ -452,26 +449,21 @@ body {
     overflow: hidden;
     color: #EFD6AC;
     font-weight: lighter;
-    gap: 5rem;
+    gap: .3rem;
     bottom: 0;
     right: 0;
     width: 100%;
-    height: 40%;
-    font-size: .8em;
+    height: 30%;
     padding-top: 5%;
+    font-size: 1.2rem;
     border-bottom-left-radius: 1.5rem;
     border-bottom-right-radius: 1.5rem;
-    background-image: linear-gradient(to bottom, rgba(67, 37, 52, 0.9), rgb(67, 37, 52));
+    background-image: linear-gradient(to right, rgba(4, 21, 31, .8), rgb(4, 21, 31));
 }
 
 .project-overlay:hover {
     color: #edd9b5;
-    background-image: linear-gradient(to bottom right, rgba(67, 37, 52, 0.8), rgb(67, 37, 52));
-}
-
-.project-overlay:hover>* {
-    transform: scale(1.2);
-    transition: 0.2s;
+    background-image: linear-gradient(to bottom right, rgba(4, 21, 31, .8), rgb(4, 21, 31));
 }
 
 .blogs {
@@ -480,11 +472,12 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 20%;
+    height: 100vh;
     background-color: #04151F;
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0px 0px 10px 0px #464646;
+    background-image: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 0H0v36h36V0zM15.126 2H2v13.126c.367.094.714.24 1.032.428L15.554 3.032c-.188-.318-.334-.665-.428-1.032zM18 4.874V18H4.874c-.094-.367-.24-.714-.428-1.032L16.968 4.446c.318.188.665.334 1.032.428zM22.874 2h11.712L20 16.586V4.874c1.406-.362 2.512-1.468 2.874-2.874zm10.252 18H20v13.126c.367.094.714.24 1.032.428l12.522-12.522c-.188-.318-.334-.665-.428-1.032zM36 22.874V36H22.874c-.094-.367-.24-.714-.428-1.032l12.522-12.522c.318.188.665.334 1.032.428zm0-7.748V3.414L21.414 18h11.712c.362-1.406 1.468-2.512 2.874-2.874zm-18 18V21.414L3.414 36h11.712c.362-1.406 1.468-2.512 2.874-2.874zM4.874 20h11.712L2 34.586V22.874c1.406-.362 2.512-1.468 2.874-2.874z' fill='%23204052' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
 .blog-container {
@@ -500,20 +493,21 @@ body {
 .blog {
     display: flex;
     position: relative;
+    flex-direction: column;
     width: 100%;
     height: 100%;
-    gap: 1rem;
+    gap: .2rem;
     border-radius: 1rem;
     background-color: white;
     align-self: center;
     border-left: 6px solid #efd6ac;
     background-color: #04151F;
-    background-image: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 0H0v36h36V0zM15.126 2H2v13.126c.367.094.714.24 1.032.428L15.554 3.032c-.188-.318-.334-.665-.428-1.032zM18 4.874V18H4.874c-.094-.367-.24-.714-.428-1.032L16.968 4.446c.318.188.665.334 1.032.428zM22.874 2h11.712L20 16.586V4.874c1.406-.362 2.512-1.468 2.874-2.874zm10.252 18H20v13.126c.367.094.714.24 1.032.428l12.522-12.522c-.188-.318-.334-.665-.428-1.032zM36 22.874V36H22.874c-.094-.367-.24-.714-.428-1.032l12.522-12.522c.318.188.665.334 1.032.428zm0-7.748V3.414L21.414 18h11.712c.362-1.406 1.468-2.512 2.874-2.874zm-18 18V21.414L3.414 36h11.712c.362-1.406 1.468-2.512 2.874-2.874zM4.874 20h11.712L2 34.586V22.874c1.406-.362 2.512-1.468 2.874-2.874z' fill='%23204052' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
-.blog-img{
+.blog-img {
     display: flex;
-    width: 30%;
+    width: 100%;
+    height: 50%;
     border-radius: 1rem;
     background-size: cover;
     background-repeat: no-repeat;
@@ -521,45 +515,17 @@ body {
     background-image: url('https://www.pixel4k.com/wp-content/uploads/2019/07/colorful-skull-dark-art_1563222221.jpg');
 }
 
-.blog-text{
+.blog-text {
     display: flex;
-    width: 70%;
+    width: 100%;
+    height: 50%;
     border-radius: 1rem;
     font-size: 1.2em;
-    padding: 2%;
     text-align: center;
     background-color: #04151F;
 }
 
-.blog-overlay{
-    display: flex;
-    position: absolute;
-    right: 0;
-    width: 30%;
-    height: 100%;
-    border-bottom-right-radius: 1rem;
-    border-top-right-radius: 1rem;
-    background-image: linear-gradient(to right, rgba(67, 37, 52, 0.8), rgb(67, 37, 52));
-    align-items: center;
-}
-
-.blog-overlay>*{
-    color: #EFD6AC;
-    font-size: 1.2em;
-    gap: 5rem;
-    margin-left: 2%;
-}
-
-.blog-overlay>p{
-    margin-left: 5%;
-    font-weight: lighter;
-}
-
-.blog-overlay:hover{
-    background-image: linear-gradient(to bottom right, rgba(67, 37, 52, 0.8), rgb(67, 37, 52));
-}
-
-.blog-overlay:hover>i{
+.project-overlay:hover>* {
     transform: scale(1.2);
     transition: 0.2s;
 }
@@ -623,7 +589,7 @@ body {
     animation: progress 1s infinite linear;
 }
 
-.fa-angles-down{
+.fa-angles-down {
     display: none;
     flex-direction: column;
     text-align: center;
@@ -633,7 +599,7 @@ body {
     top: 49%;
 }
 
-.fa-angles-down>p{
+.fa-angles-down>p {
     font-family: 'Titillium Web', sans-serif;
     font-size: 2rem;
     font-weight: lighter;
@@ -684,8 +650,9 @@ body {
         gap: 1rem;
     }
 
-    .project-container {
-        grid-template-columns: auto;
+    .project-descr-expanded{
+        grid-template-columns: 1fr 0 0;
+        grid-template-rows: 1fr 1fr 1fr;
     }
 
     .hamburger-lines {
@@ -696,51 +663,56 @@ body {
         justify-content: right;
     }
 
-    .project-descr-expanded{
-        grid-template-columns: 100% 0;
-        grid-template-rows: 20% 20% 60%;
-        justify-content: center;
-    }
-
-    .project-img-s{
-        height: 100%;
-    }
-
-    .projects{
-        height: 60%;
-    }
-
-    .project{
-        flex-direction: column;
-    }
-
-    .project>*{
-        width: 90%;
-    }
-
-    .blog-container{
+    .blog-container {
         grid-template-columns: auto;
     }
 
-    .blog-overlay{
+    .blog-overlay {
         bottom: 0;
         width: 70%;
         height: 40%;
         border-radius: 1rem;
     }
 
-    .blog{
+    .blog {
+        flex-direction: row;
         gap: 0;
     }
 
-    .blog-text{
+    .blog-text {
+        width: 70%;
+        height: 100%;
+        margin: 0;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         padding-left: 0;
     }
-    .blog-img{
+
+    .blog-img {
+        width: 30%;
+        height: 100%;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
+    }
+
+    .blog>.project-overlay {
+        width: 30%;
+        height: 100%;
+        padding-top: 0;
+        align-items: center;
+        flex-direction: row;
+        border-top-right-radius: 1.5rem;
+        border-bottom-left-radius: 0;
+    }
+
+    .blog>.project-overlay>i {
+        transform: rotate(-90deg);
+        margin-left: 1rem;
+    }
+
+    .blog>.project-overlay:hover>* {
+        transform: scale(1.2) rotate(-90deg);
+        transition: 0.2s;
     }
 }
 
@@ -814,5 +786,11 @@ body {
 
     .logo {
         width: 30%;
+    }
+}
+
+@media screen and (max-width: 2560px) {
+    .project-container {
+        grid-template-columns: auto;
     }
 }

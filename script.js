@@ -59,7 +59,7 @@ document.addEventListener('click', function (event) {
     else if (!target.classList.contains('fullres-img')) closeImgOverlay();
 
 
-    if (target.classList.contains('project-overlay')) expandProject(target);
+    if (target.classList.contains('project-expander')) expandProject(target);
     else if (target.classList.contains('fa-arrow-up')) minimizeProject(target);
 
 })
