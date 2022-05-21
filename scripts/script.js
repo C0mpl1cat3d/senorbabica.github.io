@@ -10,6 +10,8 @@ const explorer = document.querySelector('.image-explorer')
 const fullres = document.querySelector('.fullres-img')
 const inactive = document.querySelector('.fa-angles-down')
 let currentIcon;
+let infoCard = document.querySelector('.info-card')
+expanded = false;
 const sticky = window.pageYOffset;
 let width = window.innerWidth;
 AOS.init();
@@ -53,17 +55,18 @@ document.addEventListener('scroll', function () {
 document.addEventListener('click', function (event) {
     let target = event.target
     if (((target === hamburger) || target.classList.contains('line')) && !(hamburger.classList.contains('active'))) openOverlay();
-    else if (((target === hamburger) || target.classList.contains('line')) && (hamburger.classList.contains('active'))) closeOverlay();
-    else if (target.classList.contains('link')) closeOverlay();
+    else if (((target === hamburger) || target.classList.contains('line')) && (hamburger.classList.contains('active'))) closeImgOverlay()
+
+    else if (target.classList.contains('link')) closeImgOverlay();
     else if (target.classList.contains('fa-magnifying-glass-plus')) openImgOverlay(target);
-    else if (!target.classList.contains('fullres-img')) closeImgOverlay();
+    else if (!target.classList.contains('fullres-img')) closeImgOverlay()
 
 
     if (target.classList.contains('project-expander')) expandProject(target);
     else if (target.classList.contains('fa-arrow-up')) minimizeProject(target);
 
-    if (target.classList.contains('blog-expander')) expandBlog();
-
+    if (target.classList.contains('blog-expander')) expandBlog(target);
+    else if (target.classList.contains('fa-xmark') || !target.classList.contains('blog-expander')) minimizeBlog();
 })
 
 document.addEventListener('dblclick', function (e) {
@@ -237,9 +240,7 @@ function openImgOverlay(target) {
     fullres.style.display = 'flex'
     overlayOpenAnim();
     let parent = target.parentNode
-    const parentStyles = window.getComputedStyle(parent);
-    const parentImage = parentStyles.backgroundImage;
-    const url = parentImage.slice(5, -2);
+    url = getBackrounUrl(parent)
 
     fullres.src = url;
 
@@ -247,17 +248,7 @@ function openImgOverlay(target) {
 
 function closeImgOverlay() {
     body.classList.remove('lock')
-    const imgOverAnim = explorer.animate([
-        {
-            height: "0"
-        }
-    ],
-        {
-            duration: 400,
-            easing: "ease-in-out",
-            fill: "forwards"
-        })
-        setTimeout(function(){ fullres.style.display = 'none' }, 400);
+    overlayCloseAnim();
 }
 
 function expandProject(target) {
@@ -338,7 +329,7 @@ function expandInactiveOverlay() {
     overlayOpenAnim();
 }
 
-function minimizeInactiveOverlay(){
+function minimizeInactiveOverlay() {
     inactive.style.display = 'none'
     const imgOverAnim = explorer.animate([
         {
@@ -353,12 +344,58 @@ function minimizeInactiveOverlay(){
     body.classList.remove('lock')
 }
 
-function expandBlog(){
-    overlayOpenAnim();
+function expandBlog(target) {
+    const prevSibling = target.previousElementSibling;
+    const cardImgNode = prevSibling.previousElementSibling;
+    const url = getBackrounUrl(cardImgNode);
+    const content = prevSibling.textContent
+
+    const cardImg = document.createElement('div')
+    cardImg.classList.add('card-img')
+    cardImg.style.backgroundImage = "url(" + url + ")"
+
+    const cardHeader = document.createElement('div')
+    cardHeader.classList.add('card-header')
+
+    const cardOverlay = document.createElement('div')
+    cardOverlay.classList.add('card-overlay')
+    body.insertBefore(cardOverlay, body.firstChild);
+
+    const infoCard = document.createElement('div');
+    const cardText = document.createElement('p')
+    cardText.classList.add('card-text')
+    cardHeader.textContent = content
+    infoCard.classList.add('info-card')
+
+    cardText.textContent = contentSwitch(target.id)
+
+    const closeBtn = document.createElement('i')
+    closeBtn.classList.add('fa-xmark')
+    closeBtn.classList.add('fa-solid')
+
+    cardOverlay.appendChild(infoCard)
+    infoCard.appendChild(cardImg)
+    infoCard.appendChild(cardHeader)
+    infoCard.appendChild(cardText)
+    infoCard.appendChild(closeBtn)
+    overlayOpenAnim(cardOverlay);
+
+    expanded = true;
 }
 
-function overlayOpenAnim(){
-    const imgOverAnim = explorer.animate([
+function minimizeBlog() {
+    if (expanded) {
+        const overlay = document.querySelector('.card-overlay')
+        const card = document.querySelector('.info-card')
+        card.remove()
+        overlayCloseAnim(overlay)
+        expanded = false;
+    }
+    else if (!expanded) console.log('nn')
+}
+
+function overlayOpenAnim(target = explorer) {
+    const imgOverAnim = target.animate([
         {
             height: "100%"
         }
@@ -368,4 +405,44 @@ function overlayOpenAnim(){
             easing: "ease-in-out",
             fill: "forwards"
         })
+}
+
+function overlayCloseAnim(target = explorer) {
+    const imgOverAnim = target.animate([
+        {
+            height: "0"
+        }
+    ],
+        {
+            duration: 400,
+            easing: "ease-in-out",
+            fill: "forwards"
+        })
+    setTimeout(function () { fullres.style.display = 'none' }, 400);
+}
+
+function getBackrounUrl(target) {
+    const styles = window.getComputedStyle(target);
+    const imageProp = styles.backgroundImage;
+    const url = imageProp.slice(5, -2);
+    return url;
+}
+
+function contentSwitch(id) {
+    let content;
+    const index = parseInt(id)
+    switch (index) {
+        case 1:
+            content = "Tvoje máma byla hnusná šlapka"
+            break;
+        case 2:
+            content = "Měl jsem rad tvoji mamu"
+            break;
+        case 3:
+            content = "Baen"
+            break;
+        case 4:
+            content = "Bruhu tohle se mi fakt nechce dělat"
+    }
+    return content;
 }
