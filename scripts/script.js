@@ -350,6 +350,7 @@ function expandBlog(target) {
     const url = getBackrounUrl(cardImgNode);
     const content = prevSibling.textContent
 
+
     const cardImg = document.createElement('div')
     cardImg.classList.add('card-img')
     cardImg.style.backgroundImage = "url(" + url + ")"
@@ -360,6 +361,8 @@ function expandBlog(target) {
     const cardOverlay = document.createElement('div')
     cardOverlay.classList.add('card-overlay')
     body.insertBefore(cardOverlay, body.firstChild);
+
+    overlayOpenAnim(cardOverlay);
 
     const infoCard = document.createElement('div');
     const cardText = document.createElement('p')
@@ -378,7 +381,6 @@ function expandBlog(target) {
     infoCard.appendChild(cardHeader)
     infoCard.appendChild(cardText)
     infoCard.appendChild(closeBtn)
-    overlayOpenAnim(cardOverlay);
 
     expanded = true;
 }
@@ -389,6 +391,7 @@ function minimizeBlog() {
         const card = document.querySelector('.info-card')
         card.remove()
         overlayCloseAnim(overlay)
+        overlay.remove();
         expanded = false;
     }
     else if (!expanded) console.log('nn')
