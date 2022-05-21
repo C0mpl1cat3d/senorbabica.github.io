@@ -65,7 +65,7 @@ document.addEventListener('click', function (event) {
     if (target.classList.contains('project-expander')) expandProject(target);
     else if (target.classList.contains('fa-arrow-up')) minimizeProject(target);
 
-    if (target.classList.contains('blog-expander')) expandBlog(target);
+    if (target.classList.contains('read-more')) expandBlog(target);
     else if (target.classList.contains('fa-xmark') || !target.classList.contains('blog-expander')) minimizeBlog();
 })
 
