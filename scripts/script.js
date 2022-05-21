@@ -55,11 +55,11 @@ document.addEventListener('scroll', function () {
 document.addEventListener('click', function (event) {
     let target = event.target
     if (((target === hamburger) || target.classList.contains('line')) && !(hamburger.classList.contains('active'))) openOverlay();
-    else if (((target === hamburger) || target.classList.contains('line')) && (hamburger.classList.contains('active'))) closeImgOverlay()
+    else if (((target === hamburger) || target.classList.contains('line')) && (hamburger.classList.contains('active'))) overlayCloseAnim()
 
-    else if (target.classList.contains('link')) closeImgOverlay();
+    else if (target.classList.contains('link')) overlayCloseAnim();
     else if (target.classList.contains('fa-magnifying-glass-plus')) openImgOverlay(target);
-    else if (!target.classList.contains('fullres-img')) closeImgOverlay()
+    else if (!target.classList.contains('fullres-img')) overlayCloseAnim();
 
 
     if (target.classList.contains('project-expander')) expandProject(target);
@@ -70,7 +70,7 @@ document.addEventListener('click', function (event) {
 })
 
 document.addEventListener('dblclick', function (e) {
-    if (e.target.classList.contains('fullres-img') || e.target.classList.contains('image-explorer')) closeImgOverlay();
+    if (e.target.classList.contains('fullres-img') || e.target.classList.contains('image-explorer')) overlayCloseAnim();
 })
 
 document.addEventListener("mouseover", function (event) {
@@ -246,67 +246,6 @@ function openImgOverlay(target) {
 
 }
 
-function closeImgOverlay() {
-    body.classList.remove('lock')
-    overlayCloseAnim();
-}
-
-function expandProject(target) {
-    let parent = target.parentNode
-    let imgSibling = parent.previousElementSibling;
-    let headerSibling = target.nextElementSibling;
-    headerSibling.style.display = "flex"
-    imgSibling.style.display = 'none'
-    parent.classList.add('project-descr-expanded');
-    let smallImgSibling = target.previousElementSibling;
-
-    const imgStyles = window.getComputedStyle(imgSibling);
-    const parentImage = imgStyles.backgroundImage;
-    const url = parentImage.slice(5, -2);
-
-    smallImgSibling.style.backgroundImage = "url('" + url + "')"
-    smallImgSibling.style.display = 'flex'
-
-    const projectOverlayAnim = target.animate([
-        {
-            height: 0,
-            opacity: 0
-        }
-    ],
-        {
-            duration: 500,
-            easing: 'ease-in-out',
-            fill: 'forwards'
-        })
-    target.style.display = "none";
-}
-
-function minimizeProject(target) {
-    let projectImg = target.parentNode
-    let overlay = projectImg.nextElementSibling;
-    let info = overlay.nextElementSibling;
-    let parent = projectImg.parentNode
-    parent.classList.remove('project-descr-expanded');
-    let sibling = parent.previousElementSibling;
-
-    sibling.style.display = 'flex'
-    projectImg.style.display = 'none'
-    info.style.display = 'none'
-
-    overlay.style.display = "flex";
-    const projectOverlayAnim = overlay.animate([
-        {
-            height: "40%",
-            opacity: 1
-        }
-    ],
-        {
-            duration: 500,
-            easing: 'ease-in-out',
-            fill: 'forwards'
-        })
-}
-
 let inactivityTime = function () {
     let time;
     let events = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'];
@@ -345,6 +284,11 @@ function minimizeInactiveOverlay() {
 }
 
 function expandBlog(target) {
+    const cardOverlay = document.createElement('div')
+    cardOverlay.classList.add('card-overlay')
+    body.insertBefore(cardOverlay, body.firstChild);
+
+
     const prevSibling = target.previousElementSibling;
     const cardImgNode = prevSibling.previousElementSibling;
     const url = getBackrounUrl(cardImgNode);
@@ -357,12 +301,6 @@ function expandBlog(target) {
 
     const cardHeader = document.createElement('div')
     cardHeader.classList.add('card-header')
-
-    const cardOverlay = document.createElement('div')
-    cardOverlay.classList.add('card-overlay')
-    body.insertBefore(cardOverlay, body.firstChild);
-
-    overlayOpenAnim(cardOverlay);
 
     const infoCard = document.createElement('div');
     const cardText = document.createElement('p')
@@ -383,6 +321,8 @@ function expandBlog(target) {
     infoCard.appendChild(closeBtn)
 
     expanded = true;
+
+    overlayOpenAnim(cardOverlay, 0);
 }
 
 function minimizeBlog() {
@@ -394,18 +334,17 @@ function minimizeBlog() {
         overlay.remove();
         expanded = false;
     }
-    else if (!expanded) console.log('nn')
 }
 
-function overlayOpenAnim(target = explorer) {
+function overlayOpenAnim(target = explorer, duration = 400) {
+    body.classList.add('lock')
     const imgOverAnim = target.animate([
         {
             height: "100%"
         }
     ],
         {
-            duration: 400,
-            easing: "ease-in-out",
+            duration: duration,
             fill: "forwards"
         })
 }
@@ -422,6 +361,7 @@ function overlayCloseAnim(target = explorer) {
             fill: "forwards"
         })
     setTimeout(function () { fullres.style.display = 'none' }, 400);
+    body.classList.remove('lock')
 }
 
 function getBackrounUrl(target) {
