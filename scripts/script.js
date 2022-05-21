@@ -62,6 +62,8 @@ document.addEventListener('click', function (event) {
     if (target.classList.contains('project-expander')) expandProject(target);
     else if (target.classList.contains('fa-arrow-up')) minimizeProject(target);
 
+    if (target.classList.contains('blog-expander')) expandBlog();
+
 })
 
 document.addEventListener('dblclick', function (e) {
@@ -233,16 +235,7 @@ function hideIcon(currI) {
 function openImgOverlay(target) {
     body.classList.add('lock')
     fullres.style.display = 'flex'
-    const imgOverAnim = explorer.animate([
-        {
-            height: "100%"
-        }
-    ],
-        {
-            duration: 400,
-            easing: "ease-in-out",
-            fill: "forwards"
-        })
+    overlayOpenAnim();
     let parent = target.parentNode
     const parentStyles = window.getComputedStyle(parent);
     const parentImage = parentStyles.backgroundImage;
@@ -342,16 +335,7 @@ let inactivityTime = function () {
 function expandInactiveOverlay() {
     body.classList.add('lock')
     inactive.style.display = 'flex'
-    const imgOverAnim = explorer.animate([
-        {
-            height: "100%"
-        }
-    ],
-        {
-            duration: 400,
-            easing: "ease-in-out",
-            fill: "forwards"
-        })
+    overlayOpenAnim();
 }
 
 function minimizeInactiveOverlay(){
@@ -367,4 +351,21 @@ function minimizeInactiveOverlay(){
             fill: "forwards"
         })
     body.classList.remove('lock')
+}
+
+function expandBlog(){
+    overlayOpenAnim();
+}
+
+function overlayOpenAnim(){
+    const imgOverAnim = explorer.animate([
+        {
+            height: "100%"
+        }
+    ],
+        {
+            duration: 400,
+            easing: "ease-in-out",
+            fill: "forwards"
+        })
 }
