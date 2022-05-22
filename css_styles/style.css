@@ -516,6 +516,8 @@ body {
     grid-template-columns: 30% 70%;
     grid-template-rows: 1fr 2fr;
     position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
     border-radius: 1rem;
     width: 30%;
     height: 60%;
@@ -712,7 +714,7 @@ body {
     }
 
     .card-img{
-        height: 40%;
+        height: 50rem;
     }
 
     .article-content {
