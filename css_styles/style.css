@@ -328,7 +328,7 @@ body {
     position: relative;
     overflow: hidden;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
     height: 100%;
     gap: 1rem;
@@ -339,8 +339,8 @@ body {
 .project-img {
     display: flex;
     width: 50%;
-    height: 90%;
-    margin-right: 0;
+    height: 20rem;
+    margin-left: 1rem;
     border-radius: 1.5rem;
     background-size: cover;
     background-repeat: no-repeat;
@@ -348,7 +348,7 @@ body {
 }
 
 .second.project-img {
-    background-image: url('https://i.pinimg.com/originals/f1/6f/ed/f16fedc86686146624897737cf4338d8.jpg');
+    background-image: url('https://miro.medium.com/max/1400/1*gkDHFao9Y4pL8JnKbJQxOA.jpeg');
 }
 
 
@@ -361,7 +361,7 @@ body {
 }
 
 .project-img.first {
-    background-image: url('https://newevolutiondesigns.com/images/freebies/cool-4k-iphone-wallpaper-10.jpg');
+    background-image: url("https://www.coliseugeek.com.br/wp-content/uploads/2022/02/5-melhores-bots-para-discord-em-2022.png")
 }
 
 .project-descr-expanded::-webkit-scrollbar {
@@ -382,10 +382,28 @@ body {
     grid-column-start: 2;
     font-size: 1.2em;
     width: 50%;
+    width: 90%;
     justify-content: center;
     text-align: left;
     padding: 4%;
     border-radius: 1rem;
+}
+
+.project-description{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: larger;
+}
+
+.project-description>span{
+    display: flex;
+}
+
+.project-name{
+    display: flex;
+    font-size: 2em;
+    color: #EFD6AC;
 }
 
 .read-more {
@@ -397,26 +415,27 @@ body {
     color: #EFD6AC;
     font-weight: lighter;
     gap: .3rem;
-    bottom: 0;
+    bottom: 1rem;
     right: 0;
     width: 100%;
-    height: 30%;
+    height: 20%;
     padding-top: 5%;
     font-size: 1.2rem;
     border-bottom-left-radius: 1.5rem;
     border-bottom-right-radius: 1.5rem;
-    background-image: linear-gradient(to right, rgba(4, 21, 31, .8), rgb(4, 21, 31));
+    background-color: rgba(7, 29, 42, .8);
+    transition: 0.2s;
 }
 
 .project-overlay{
-    width: 50%;
+    width: 62%;
     margin-right: 1rem;
 }
 
 
 .read-more:hover {
     color: #edd9b5;
-    background-image: linear-gradient(to bottom right, rgba(4, 21, 31, .8), rgb(4, 21, 31));
+    background-color: rgba(7, 29, 42, .5);
 }
 
 .read-more:hover>* {
@@ -545,15 +564,45 @@ body {
     align-items: center;
     height: 10vh;
     bottom: 0;
-    background-color: black;
+    background-color: #04151F;
+    background-image: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 0H0v36h36V0zM15.126 2H2v13.126c.367.094.714.24 1.032.428L15.554 3.032c-.188-.318-.334-.665-.428-1.032zM18 4.874V18H4.874c-.094-.367-.24-.714-.428-1.032L16.968 4.446c.318.188.665.334 1.032.428zM22.874 2h11.712L20 16.586V4.874c1.406-.362 2.512-1.468 2.874-2.874zm10.252 18H20v13.126c.367.094.714.24 1.032.428l12.522-12.522c-.188-.318-.334-.665-.428-1.032zM36 22.874V36H22.874c-.094-.367-.24-.714-.428-1.032l12.522-12.522c.318.188.665.334 1.032.428zm0-7.748V3.414L21.414 18h11.712c.362-1.406 1.468-2.512 2.874-2.874zm-18 18V21.414L3.414 36h11.712c.362-1.406 1.468-2.512 2.874-2.874zM4.874 20h11.712L2 34.586V22.874c1.406-.362 2.512-1.468 2.874-2.874z' fill='%23204052' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
 .footer-content{
     display: flex;
+    flex-direction: column;
     height: 100%;
     width: 70%;
-    background-color: white;
     justify-content: center;
+    align-items: center;
+    background-color: #04151F;
+}
+
+.footer-content>p{
+    display: flex;
+    font-size: 1em;
+    margin: 0;
+}
+
+.contacts{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.contacts>a{
+    color: #c4a570;
+    font-size: 1.8em;
+    transition: 0.5s;
+}
+
+.contacts>a:hover{
+    color: #432534;
+}
+
+.contacts>a:visited{
+    text-decoration: none;
+    color: #c4a570;
 }
 
 .fa-magnifying-glass-plus {

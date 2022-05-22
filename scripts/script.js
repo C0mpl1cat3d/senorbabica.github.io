@@ -66,7 +66,7 @@ document.addEventListener('click', function (event) {
     else if (target.classList.contains('fa-arrow-up')) minimizeProject(target);
 
     if (target.classList.contains('read-more')) expandBlog(target);
-    else if (target.classList.contains('fa-xmark') || !target.classList.contains('blog-expander')) minimizeBlog();
+    else if (target.classList.contains('fa-xmark') || target.classList.contains('card-overlay')) minimizeBlog();
 })
 
 document.addEventListener('dblclick', function (e) {
@@ -292,7 +292,7 @@ function expandBlog(target) {
     const prevSibling = target.previousElementSibling;
     const cardImgNode = prevSibling.previousElementSibling;
     const url = getBackrounUrl(cardImgNode);
-    const content = prevSibling.textContent
+    const content = prevSibling.innerHTML
 
 
     const cardImg = document.createElement('div')
@@ -305,7 +305,7 @@ function expandBlog(target) {
     const infoCard = document.createElement('div');
     const cardText = document.createElement('p')
     cardText.classList.add('card-text')
-    cardHeader.textContent = content
+    cardHeader.innerHTML = content
     infoCard.classList.add('info-card')
 
     cardText.textContent = contentSwitch(target.id)
@@ -376,7 +376,7 @@ function contentSwitch(id) {
     const index = parseInt(id)
     switch (index) {
         case 1:
-            content = "Tvoje máma byla hnusná šlapka"
+            content = "Lyric has a loads of different usecase scenarios and commands for use on server. If I should pick my favorites, I think I would go with purge function that can delete messages you don't want on your server."
             break;
         case 2:
             content = "Měl jsem rad tvoji mamu"
