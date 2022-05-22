@@ -262,27 +262,6 @@ let inactivityTime = function () {
     }
 };
 
-function expandInactiveOverlay() {
-    body.classList.add('lock')
-    inactive.style.display = 'flex'
-    overlayOpenAnim();
-}
-
-function minimizeInactiveOverlay() {
-    inactive.style.display = 'none'
-    const imgOverAnim = explorer.animate([
-        {
-            height: "0"
-        }
-    ],
-        {
-            duration: 400,
-            easing: "ease-in-out",
-            fill: "forwards"
-        })
-    body.classList.remove('lock')
-}
-
 function expandBlog(target) {
     const cardOverlay = document.createElement('div')
     cardOverlay.classList.add('card-overlay')
@@ -379,13 +358,15 @@ function contentSwitch(id) {
             content = "Lyric has a loads of different usecase scenarios and commands for use on server. If I should pick my favorites, I think I would go with purge function that can delete messages you don't want on your server."
             break;
         case 2:
-            content = "Měl jsem rad tvoji mamu"
+            content = "The RPG game inside consists of small map, where you can travel between cities. There is economy as well and you can buy combat items for coins that you earned from various quests in the game."
             break;
         case 3:
-            content = "Baen"
+            content = "In the experiment I found out following things. Monkeys are not very well adapted for this kind of situation, people would think that monkeys are very social animals but opposite is the fact. They don't handle other monkeys well and when are they in close proximty they argue a lot. Another thing is that we until now thought that monkeys are somewhat smart but i beg to differ. NO they are not."
             break;
         case 4:
-            content = "Bruhu tohle se mi fakt nechce dělat"
-    }
+            content = "That sparked the thought. I was thinking about the whole way home and realized something. We assume that everyone see everthing the same way as we do but not only illogical, but wrong. Everyone perceives their own reality, and if there is some objective reality, we can't possibly experience it."
+        case 5:
+            content = "Well just think about it. You don't want to eat the most pleasurable taste combination in the world. It's pure fantasy for your taste buds yet you decide you don't want to 'endure' it. So logically that must mean that they hate themselves. :)"
+        }
     return content;
 }

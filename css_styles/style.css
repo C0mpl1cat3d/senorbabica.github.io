@@ -261,7 +261,7 @@ body {
 
 .img-container {
     display: flex;
-    background-image: url("https://i.pinimg.com/736x/bf/50/ab/bf50ab80c1b2015d78b0a193ec42f2b3.jpg");
+    background-image: url("https://i.ibb.co/QprPFtT/087A9323.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -278,6 +278,7 @@ body {
 
 .intro-text {
     display: flex;
+    flex-direction: column;
     color: #FAF9F9;
     background-color: #04151F;
     text-align: center;
@@ -306,7 +307,7 @@ body {
     align-items: center;
     overflow: hidden;
     width: 100%;
-    height: 150vh;
+    height: 100vh;
     background-color: #04151F;
     border-radius: 1rem;
     padding-bottom: 2%;
@@ -347,22 +348,18 @@ body {
     background-position: center;
 }
 
+.project-img.first {
+    background-image: url("https://www.coliseugeek.com.br/wp-content/uploads/2022/02/5-melhores-bots-para-discord-em-2022.png")
+}
+
 .second.project-img {
     background-image: url('https://miro.medium.com/max/1400/1*gkDHFao9Y4pL8JnKbJQxOA.jpeg');
 }
 
-
 .project-img.third {
-    background-image: url('https://www.pixel4k.com/wp-content/uploads/2019/07/colorful-skull-dark-art_1563222221.jpg');
+    background-image: url('data:image/jpeg;base64,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');
 }
 
-.project-img.fourth {
-    background-image: url('https://browsecat.net/sites/default/files/cool-4k-wallpapers-wallpapers-96149-699287-148069.png');
-}
-
-.project-img.first {
-    background-image: url("https://www.coliseugeek.com.br/wp-content/uploads/2022/02/5-melhores-bots-para-discord-em-2022.png")
-}
 
 .project-descr-expanded::-webkit-scrollbar {
     width: 0;
@@ -415,7 +412,7 @@ body {
     color: #EFD6AC;
     font-weight: lighter;
     gap: .3rem;
-    bottom: 1rem;
+    bottom: 0;
     right: 0;
     width: 100%;
     height: 20%;
@@ -449,7 +446,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    height: 70vh;
     background-color: #04151F;
     border-radius: 1rem;
     overflow: hidden;
@@ -477,6 +474,7 @@ body {
     border-radius: 1rem;
     background-color: white;
     align-self: center;
+    justify-content: center;
     border-left: 6px solid rgb(67, 37, 52);
     background-color: #04151F;
 }
@@ -485,21 +483,33 @@ body {
     display: flex;
     width: 100%;
     height: 60%;
-    border-radius: 1rem;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url('https://www.pixel4k.com/wp-content/uploads/2019/07/colorful-skull-dark-art_1563222221.jpg');
+}
+
+.firstB{
+    background-image: url('https://www.designpoolpatterns.com/wp-content/uploads/2019/03/Color_Wheel-01.jpg');
+}
+
+
+.secondB{
+    background-image: url('https://d18lkz4dllo6v2.cloudfront.net/cumulus_uploads/entry/2019-02-04/pineapple%20pizza.jpg');
 }
 
 .blog-text {
     display: flex;
-    width: 100%;
+    width: 90%;
     height: 40%;
     border-radius: 1rem;
+    margin: 1rem;
     font-size: 1.2em;
     text-align: center;
     background-color: #04151F;
+}
+
+.perex{
+    font-size: 1.5em;
 }
 
 .info-card{
@@ -536,6 +546,8 @@ body {
 
 .card-text{
     display: flex;
+    font-size: larger;
+    margin: .5rem;
     grid-column-start: 1;
     grid-column-end: 3;
 }
