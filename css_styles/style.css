@@ -505,10 +505,13 @@ body {
     margin: 1rem;
     font-size: 1.2em;
     text-align: center;
+    justify-content: center;
     background-color: #04151F;
 }
 
 .perex{
+    text-align: center;
+    justify-content: center;
     font-size: 1.5em;
 }
 
